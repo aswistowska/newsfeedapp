@@ -25,7 +25,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
 
 
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?section=travel&order-by=newest&show-fields=trailText&api-key=test";
+            "http://content.guardianapis.com/search?section=travel&order-by=newest&show-tags=contributor&show-fields=trailText&api-key=test";
 
     /**
      * Instantiate and return a new Loader for the given ID.

@@ -160,7 +160,13 @@ public final class QueryUtils {
                 String trailText = fields.getString("trailText");
                 String url = currentNews.getString("webUrl");
 
-                News news = new News(section, date, title, trailText, url);
+                JSONArray tagsArray = currentNews.getJSONArray("tags");
+                String author = "";
+                for (int j = 0; j < tagsArray.length(); j++){
+                    JSONObject tag = tagsArray.getJSONObject(j);
+                    author = tag.getString("webTitle");
+                }
+                News news = new News(section, date, title, trailText, url, author);
 
                 newness.add(news);
             }

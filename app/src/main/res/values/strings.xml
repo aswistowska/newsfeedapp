@@ -3,7 +3,7 @@
     <string name="category">category</string>
     <string name="title">title</string>
     <string name="story">story</string>
-    <string name="no_news">No News</string>
+    <string name="no_news">There are no news for you now. You can always come back later and read the latest news.</string>
     <string name="no_internet_access">No internet access. Check your connection.</string>
     <string name="date">07.04.2018 12:00</string>
     <string name="trailText">Some random text</string>
