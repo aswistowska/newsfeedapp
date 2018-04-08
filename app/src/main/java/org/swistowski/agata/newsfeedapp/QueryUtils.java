@@ -164,7 +164,11 @@ public final class QueryUtils {
                 String author = "";
                 for (int j = 0; j < tagsArray.length(); j++){
                     JSONObject tag = tagsArray.getJSONObject(j);
-                    author = tag.getString("webTitle");
+                    if (j == 0) {
+                        author = tag.getString("webTitle");
+                    } else {
+                        author += ", " + tag.getString("webTitle");
+                    }
                 }
                 News news = new News(section, date, title, trailText, url, author);
 

@@ -48,6 +48,14 @@ public class NewsAdapter extends ArrayAdapter<News> {
         TextView storyView = (TextView) listItemView.findViewById(R.id.news_trail);
         storyView.setText(currentNews.getmStory());
 
+        TextView authorView = listItemView.findViewById(R.id.news_author);
+        if (currentNews.getmAuthor() != "") {
+            authorView.setVisibility(View.VISIBLE);
+            authorView.setText(currentNews.getmAuthor());
+        } else {
+            authorView.setVisibility(View.GONE);
+        }
+
         return listItemView;
     }
 }

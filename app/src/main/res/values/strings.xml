@@ -7,4 +7,5 @@
     <string name="no_internet_access">No internet access. Check your connection.</string>
     <string name="date">07.04.2018 12:00</string>
     <string name="trailText">Some random text</string>
+    <string name="author">author</string>
 </resources>

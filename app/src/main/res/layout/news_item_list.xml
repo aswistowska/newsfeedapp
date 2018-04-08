@@ -27,6 +27,15 @@
         tools:text="@string/date" />
 
     <TextView
+        android:id="@+id/news_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secondaryText"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        tools:text="@string/author" />
+
+    <TextView
         android:id="@+id/news_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
