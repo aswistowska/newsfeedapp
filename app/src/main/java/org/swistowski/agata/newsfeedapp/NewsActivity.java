@@ -4,9 +4,11 @@ import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,6 +40,13 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
      */
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
+        String selectTopic = sharedPrefs.getString(
+                getString(R.string.settings_select_topic_key),
+                getString(R.string.settings_select_topic_default));
+
         return new NewsLoader(this, GUARDIAN_REQUEST_URL);
     }
 
