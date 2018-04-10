@@ -21,4 +21,8 @@
 
     <string name="settings_select_topic_fashion_label">Fashion</string>
     <string name="settings_select_topic_fashion_value" translatable="false">fashion</string>
+
+    <string name="settings_min_articles_label">Minimum Articles</string>
+    <string name="settings_min_articles_key" translatable="false">min_articles</string>
+    <string name="settings_min_articlese_default" translatable="false">10</string>
 </resources>

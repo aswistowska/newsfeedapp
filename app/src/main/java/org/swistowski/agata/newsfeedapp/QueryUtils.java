@@ -20,20 +20,14 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public final class QueryUtils {
 
     public static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
-    /**
-     * Query the USGS dataset and return a list of {@link News} objects.
-     */
     public static List<News> fetchNewsData(String requestUrl) {
 
         URL url = createUrl(requestUrl);

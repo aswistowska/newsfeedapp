@@ -23,13 +23,13 @@ import java.util.List;
 
 public class NewsActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<List<News>> {
 
-    private static final int EARTHQUAKE_LOADER_ID = 1;
+    private static final int NEWS_LOADER_ID = 1;
     private NewsAdapter mAdapter;
     private TextView EmptyStateTextView;
 
 
     private static final String GUARDIAN_REQUEST_URL =
-            "http://content.guardianapis.com/search?section=travel&order-by=newest&show-tags=contributor&show-fields=trailText&api-key=test";
+            "http://content.guardianapis.com/search";
 
     /**
      * Instantiate and return a new Loader for the given ID.
@@ -40,6 +40,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
      */
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
+
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
         // getString retrieves a String value from the preferences. The second parameter is the default value for this preference.
@@ -47,7 +48,21 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
                 getString(R.string.settings_select_topic_key),
                 getString(R.string.settings_select_topic_default));
 
-        return new NewsLoader(this, GUARDIAN_REQUEST_URL);
+        String minimumArticles = sharedPrefs.getString(
+                getString(R.string.settings_min_articles_key),
+                getString(R.string.settings_min_articlese_default));
+
+        Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
+        Uri.Builder uriBuilder = baseUri.buildUpon();
+
+        uriBuilder.appendQueryParameter("section", selectTopic);
+        uriBuilder.appendQueryParameter("page-size", minimumArticles);
+        uriBuilder.appendQueryParameter("order-by", "newest");
+        uriBuilder.appendQueryParameter("show-tags", "contributor");
+        uriBuilder.appendQueryParameter("show-fields", "trailText");
+        uriBuilder.appendQueryParameter("api-key", "test");
+
+        return new NewsLoader(this, uriBuilder.toString());
     }
 
     /**
@@ -89,7 +104,7 @@ public class NewsActivity extends AppCompatActivity implements LoaderManager.Loa
         if (activeNetwork != null && activeNetwork.isConnectedOrConnecting()) {
 
             LoaderManager loaderManager = getLoaderManager();
-            loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
+            loaderManager.initLoader(NEWS_LOADER_ID, null, this);
 
             ListView newsListView = (ListView) findViewById(R.id.list);
 
