@@ -22,7 +22,18 @@
     <string name="settings_select_topic_fashion_label">Fashion</string>
     <string name="settings_select_topic_fashion_value" translatable="false">fashion</string>
 
+    <string name="settings_select_topic_politics_label">Politics</string>
+    <string name="settings_select_topic_politics_value" translatable="false">politics</string>
+
+    <string name="settings_select_topic_sport_label">Sport</string>
+    <string name="settings_select_topic_sport_value" translatable="false">sport</string>
+
+    <string name="settings_select_topic_business_label">Business</string>
+    <string name="settings_select_topic_business_value" translatable="false">business</string>
+
+
     <string name="settings_min_articles_label">Minimum Articles</string>
     <string name="settings_min_articles_key" translatable="false">min_articles</string>
     <string name="settings_min_articlese_default" translatable="false">10</string>
+
 </resources>
